@@ -1,6 +1,6 @@
 # A python snippet script based on selenium to check plagiarism
 
-it contains Two functions 
+It contains Two functions 
 1. googleSearch() to perform google search
 2. compareStr() to compare two strings
 
@@ -9,10 +9,11 @@ it contains Two functions
 `googleSearch("hello")`
 
 It works by searching on google the string we gave in argument and collect following items of each result.
-*  link Title
+
+* domain
+* url
+* title
 * description
-* link
-* domain name
 
 This items of each search result are returned if form of dictionary.
 
