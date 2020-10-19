@@ -23,9 +23,16 @@ def googleSearch(query):
     # which will be returned by this function
     data = {}
     
-    s_len = len(driver.find_elements_by_class_name('g')) + 2
+    # number of search reasult count of first page
+    # cuz generally per page results are around 10-15
+
+    s_len = 15
     
     for s_block in range(s_len):
+        #  try to handle error 
+        # if element based on xpath is not found ,
+        # continue through the loop
+        
         try:
             # store data collected of each s_block to block {}
             block = {}
