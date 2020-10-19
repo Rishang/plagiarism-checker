@@ -1,10 +1,12 @@
 # A python snippet script based on selenium to check plagiarism
 
+**checkout `demo.py` for seeing use case of the script**
+
 It contains Two functions 
 1. googleSearch() to perform google search
 2. compareStr() to compare two strings
 
-**Use case:**
+**Example:**
 
 `googleSearch("hello")`
 
