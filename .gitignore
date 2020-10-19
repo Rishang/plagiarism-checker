@@ -5,3 +5,4 @@ __pycache__/*
 *.csv
 *.code-workspace
 .vscode/*
+tmp*.*
