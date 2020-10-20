@@ -8,3 +8,6 @@ for result in data:
     compare = compareStr(data[result]["description"],copied_content)
     if compare > 70:
         print(f'copied data form {data[result]["url"]}')
+
+# output:
+# copied data form https://www.w3schools.com/whatis/whatis_html.asp
