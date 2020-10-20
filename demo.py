@@ -7,4 +7,4 @@ data = googleSearch(copied_content)
 for result in data:
     compare = compareStr(data[result]["description"],copied_content)
     if compare > 70:
-        print(f'copied data form {data[result]["url"]}')
+        print(f'copied data form {data[result]["domain"]}')

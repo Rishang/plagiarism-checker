@@ -37,19 +37,16 @@ def googleSearch(query):
             # store data collected of each s_block to block {}
             block = {}
 
-            # find domain name of web having content
-            xpath_domain = f"""//*[@id="rso"]/div[{s_block}]/div/div[1]/a/div/cite"""
-            domain_p = driver.find_element_by_xpath(xpath_domain)
-            domain_p = domain_p.get_attribute('innerText')
-            
-            # regex pattern for selectiong domain name
-            pattern =  r"""(https?:\/\/)?(([a-z0-9-_]+\.)?([a-z0-9-_]+\.[a-z0-9-_]+))"""
-            domain = re.search(pattern, domain_p)[0]
 
             # find url of content
             xpath_url = f"""//*[@id="rso"]/div[{s_block}]/div/div[1]/a"""
             url = driver.find_element_by_xpath(xpath_url)
-            url = url.get_attribute('href')            
+            url = url.get_attribute('href')
+            
+            # find domain name of web having content
+            pattern =  r"""(https?:\/\/)?(([a-z0-9-_]+\.)?([a-z0-9-_]+\.[a-z0-9-_]+))"""
+            domain = re.search(pattern, url)[0]
+
 
             # find title of content
             xpath_title = f"""//*[@id="rso"]/div[{s_block}]/div/div[1]/a/h3/span"""
