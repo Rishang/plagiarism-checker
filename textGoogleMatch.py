@@ -38,7 +38,8 @@ def googleSearch(query):
             block = {}
 
             # find domain name of web having content
-            domain_p = driver.find_element_by_xpath(f"""//*[@id="rso"]/div[{s_block}]/div/div[1]/a/div/cite""")
+            xpath_domain = f"""//*[@id="rso"]/div[{s_block}]/div/div[1]/a/div/cite"""
+            domain_p = driver.find_element_by_xpath(xpath_domain)
             domain_p = domain_p.get_attribute('innerText')
             
             # regex pattern for selectiong domain name
@@ -46,15 +47,18 @@ def googleSearch(query):
             domain = re.search(pattern, domain_p)[0]
 
             # find url of content
-            url = driver.find_element_by_xpath(f"""//*[@id="rso"]/div[{s_block}]/div/div[1]/a""")
+            xpath_url = f"""//*[@id="rso"]/div[{s_block}]/div/div[1]/a"""
+            url = driver.find_element_by_xpath(xpath_url)
             url = url.get_attribute('href')            
 
             # find title of content
-            title = driver.find_element_by_xpath(f"""//*[@id="rso"]/div[{s_block}]/div/div[1]/a/h3/span""")
+            xpath_title = f"""//*[@id="rso"]/div[{s_block}]/div/div[1]/a/h3/span"""
+            title = driver.find_element_by_xpath(xpath_title)
             title = title.get_attribute("innerText")
             
             # find description of content
-            description = driver.find_element_by_xpath(f"""//*[@id="rso"]/div[{s_block}]/div/div[2]/div/span""")
+            xpath_description = f"""//*[@id="rso"]/div[{s_block}]/div/div[2]/div/span"""
+            description = driver.find_element_by_xpath(xpath_description)
             description = description.get_attribute("innerText")
             
             # save all data to block {}
