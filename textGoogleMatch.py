@@ -5,12 +5,12 @@ import difflib
 from  selenium.common import exceptions
 
 options = Options()
-options.headless = True
+options.add_argument("--headless")
 
 def googleSearch(query):
 
     # specifing browser web driver
-    driver = webdriver.Chrome('chromedriver')
+    driver = webdriver.Chrome(chrome_options=options, executable_path='chromedriver')
     
     # search query
     search_engine = "https://www.google.com/search?q="
