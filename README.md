@@ -1,5 +1,8 @@
 # A python snippet script based on selenium to check plagiarism
 
+Checkout my article on explaining about this script.
+[medium.com/swlh/this-way-i-checked-hundreds-of-plagiarized-answers-in-seconds](https://medium.com/swlh/this-way-i-checked-hundreds-of-plagiarized-answers-in-seconds-50ef0354fdfa?source=friends_link&sk=6dc250097d03100e5ea9a10983e24f6d)
+
 **checkout `demo.py` for seeing use case of the script**
 
 It contains Two functions 
