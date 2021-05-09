@@ -10,7 +10,7 @@ options.add_argument("--headless")
 def googleSearch(query):
 
     # specifing browser web driver
-    driver = webdriver.Chrome(chrome_options=options, executable_path='chromedriver')
+    driver = webdriver.Chrome(options=options, executable_path='chromedriver')
     
     # search query
     search_engine = "https://www.google.com/search?q="
@@ -32,14 +32,20 @@ def googleSearch(query):
         #  try to handle error 
         # if element based on xpath is not found ,
         # continue through the loop
+
+        # result block
+        content_block_xpath = f'''//*[@id="rso"]/div[{s_block}]/div/div'''
+
+        # xpaths
+        xpath_url = f"""{content_block_xpath}/div[1]/a"""
+        xpath_title = f"""{content_block_xpath}/div[1]/a/h3"""
+        xpath_description = f"""{content_block_xpath}/div[2]/span/span"""
         
         try:
             # store data collected of each s_block to block {}
             block = {}
 
-
             # find url of content
-            xpath_url = f"""//*[@id="rso"]/div[{s_block}]/div/div[1]/a"""
             url = driver.find_element_by_xpath(xpath_url)
             url = url.get_attribute('href')
             
@@ -49,12 +55,10 @@ def googleSearch(query):
 
 
             # find title of content
-            xpath_title = f"""//*[@id="rso"]/div[{s_block}]/div/div[1]/a/h3/span"""
             title = driver.find_element_by_xpath(xpath_title)
             title = title.get_attribute("innerText")
             
             # find description of content
-            xpath_description = f"""//*[@id="rso"]/div[{s_block}]/div/div[2]/div/span"""
             description = driver.find_element_by_xpath(xpath_description)
             description = description.get_attribute("innerText")
             
@@ -69,6 +73,9 @@ def googleSearch(query):
         
         except exceptions.NoSuchElementException:
             continue
+        
+        if len(data) == 0:
+            raise Exception("No data found")
 
     driver.close()
     return data
